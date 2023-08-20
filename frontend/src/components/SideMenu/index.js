@@ -27,36 +27,21 @@ class SideMenu extends Component {
 
     const { signOutRequest } = this.props;
     const links = [
-        {
-            screen: LAD,
-            component: LAD,
-            icon: (
-                <MonitorIcon
-                    color={"#FFF"}
-                    strokeWidth={this.getStrokeWidth(LAD)}
-                />
-            ),
-        },
-        {
-            screen: ADD_TRAIN,
-            component: DATASOURCE,
-            icon: (
-                <AddIcon
-                    color={"#FFF"}
-                    strokeWidth={this.getStrokeWidth(ADD_TRAIN)}
-                />
-            ),
-        },
-        {
-            screen: TRAIN_MODEL,
-            component: TRAIN_MODEL,
-            icon: (
-                <TranModelIcon
-                    color={"#FFF"}
-                    strokeWidth={this.getStrokeWidth(TRAIN_MODEL)}
-                />
-            ),
-        }
+      {
+        screen: LAD,
+        component: LAD,
+        icon: <MonitorIcon color={'#FFF'} strokeWidth={this.getStrokeWidth(LAD)} />
+      },
+      {
+        screen: ADD_TRAIN,
+        component: DATASOURCE,
+        icon: <AddIcon color={'#FFF'} strokeWidth={this.getStrokeWidth(ADD_TRAIN)} />
+      },
+      {
+        screen: TRAIN_MODEL,
+        component: TRAIN_MODEL,
+        icon: <TranModelIcon color={'#FFF'} strokeWidth={this.getStrokeWidth(TRAIN_MODEL)} />
+      }
     ];
 
     return (
@@ -74,9 +59,6 @@ class SideMenu extends Component {
           ))}
         </ItemList>
         <ItemList>
-          <Item>Dash</Item>
-        </ItemList>
-        <ItemList>
           <Item>
             <ItemText onClick={signOutRequest}>Sair</ItemText>
           </Item>
@@ -91,6 +73,4 @@ const mapStateToProps = ({ screen }) => ({ screen });
 export default connect(
   mapStateToProps,
   { ...AuthActions, ...ScreenActions }
-
-
 )(SideMenu);

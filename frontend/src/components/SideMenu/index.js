@@ -59,6 +59,9 @@ class SideMenu extends Component {
           ))}
         </ItemList>
         <ItemList>
+          <Item>Dash</Item>
+        </ItemList>
+        <ItemList>
           <Item>
             <ItemText onClick={signOutRequest}>Sair</ItemText>
           </Item>

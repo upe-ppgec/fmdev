@@ -67,7 +67,7 @@ class SideMenu extends Component {
             icon: (
                 <FiActivity
                     color={"#FFF"}
-                    strokeWidth={this.getStrokeWidth(null)}
+                    strokeWidth={this.getStrokeWidth(DSH)}
                 />
             ),
         },

@@ -9,3 +9,5 @@ export const TRAIN_PIPELINES = 'TRAIN_PIPELINES';
 export const LMS = 'LMS';
 export const CSV = 'CSV';
 export const LAD = 'LAD';
+// H2O+
+export const DSH = 'DSH';

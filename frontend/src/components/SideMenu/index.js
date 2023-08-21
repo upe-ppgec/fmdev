@@ -57,6 +57,9 @@ class SideMenu extends Component {
               {link.icon}
             </Item>
           ))}
+          <Item>
+            <ItemText onClick={null}>Dash</ItemText>
+          </Item>
         </ItemList>
         <ItemList>
           <Item>

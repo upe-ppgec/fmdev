@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 import logo from '../../assets/logo.svg';
-// H2O+
-import dshLogo from '../../assets/graphic.svg';
-import FiActivity from 'react-feather/dist/icons/activity';
 import { Container, ItemList, Item, ItemText, Logo } from './styles';
 import { connect } from 'react-redux';
 
@@ -12,6 +9,8 @@ import { Creators as ScreenActions } from '../../store/ducks/screen';
 import AddIcon from 'react-feather/dist/icons/plus-circle';
 import TranModelIcon from 'react-feather/dist/icons/package';
 import MonitorIcon from 'react-feather/dist/icons/monitor';
+// H2O+
+import FiActivity from 'react-feather/dist/icons/activity';
 // H2O+
 import { DATASOURCE, TRAIN_MODEL, ADD_TRAIN, LAD, DSH } from '../../constants';
 
@@ -87,9 +86,6 @@ class SideMenu extends Component {
               {link.icon}
             </Item>
           ))}
-          {/* <Item>
-            <ItemText onClick={null}>Dash</ItemText>
-          </Item> */}
         </ItemList>
         <ItemList>
           <Item>
@@ -106,6 +102,7 @@ const mapStateToProps = ({ screen }) => ({ screen });
 export default connect(
   mapStateToProps,
   { ...AuthActions, ...ScreenActions }
+
 
 
 

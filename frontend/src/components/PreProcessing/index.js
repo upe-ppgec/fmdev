@@ -258,7 +258,10 @@ class PreProcessing extends Component {
             <div>
               <Button onClick={this.submit.bind(this)}>Configurar treinamento</Button>
             </div>
-          </Header>
+            <div>
+              <Button onClick={this.submit.bind(this)}>Clusterizar</Button>
+            </div>
+          </Header> 
 
           <DataSourceText>
             <span><b>Fonte de dados: </b> {dataSourceContext}/{dataSourceName} {data.length && !loading ? `(Total de Instâncias : ${data[0].count})` : null}</span>

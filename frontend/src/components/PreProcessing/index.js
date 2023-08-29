@@ -22,6 +22,7 @@ import { ProgressSpinner } from 'primereact/progressspinner';
 import { actions as toastrActions } from 'react-redux-toastr';
 import { Creators as ChartActions } from '../../store/ducks/chart';
 import Chart from '../Chart';
+
 import { Menu, MenuItem } from '@material-ui/core';
 import { terciaryColor, FirstHeaderColumn } from '../../styles/global';
 import PreProcessingDialog from '../PreProcessingDialog';

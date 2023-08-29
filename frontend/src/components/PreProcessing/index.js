@@ -15,7 +15,7 @@ import AlertIcon from 'react-feather/dist/icons/alert-triangle';
 import TargetIcon from 'react-feather/dist/icons/crosshair';
 import Progress from '../Progress';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import { INDICATORS, TRAIN, ADD_TRAIN } from '../../constants';
+import { INDICATORS, TRAIN, ADD_TRAIN, DSH /*MATRIX*/ } from '../../constants';
 import { Creators as ScreenActions } from '../../store/ducks/screen';
 import { Creators as DialogActions } from '../../store/ducks/dialog';
 import { ProgressSpinner } from 'primereact/progressspinner';
@@ -210,6 +210,14 @@ class PreProcessing extends Component {
     this.props.setDialog('trainConfig');
   }
 
+  toDsh = () => {
+    //ESTÁ SÓ INDO PRA TELA, SEM LEVAR DADOS!!!
+    const { path } = this.props.pre_processing;
+    this.props.deletePreProcessing({ path });
+
+    this.props.setScreen(ADD_TRAIN, DSH);
+  }
+
   renderWarningMsg = (msg) => {
     this.props.add({
       type: 'warning',
@@ -259,7 +267,7 @@ class PreProcessing extends Component {
               <Button onClick={this.submit.bind(this)}>Configurar treinamento</Button>
             </div>
             <div>
-              <Button onClick={this.submit.bind(this)}>Clusterizar</Button>
+              <Button onClick={this.toDsh.bind(this)}>Clusterizar</Button>
             </div>
           </Header> 
 

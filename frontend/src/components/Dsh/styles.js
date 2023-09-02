@@ -13,3 +13,11 @@ margin: 2rem;
 height: 100;
 width: 200;
 `;
+
+export const chart = styled.div`
+           display: container;
+           break-after: always;
+           word-wrap: break-word;
+           overflow-wrap: break-word;
+           width: 100%;
+       `;

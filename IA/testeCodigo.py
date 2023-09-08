@@ -1,4 +1,4 @@
-#from tkinter.tix import InputOnly
+'#from tkinter.tix import InputOnly
 from dash import Dash, html, dcc, State, dash_table
 import plotly.express as px
 import pandas as pd
@@ -80,14 +80,14 @@ def ajeitandoColunas(var,df):
 
 def dadosGraficos(df):
 
-    #pre processando os dados p ficar organizados para plotar 
+    #pre processando os dados p ficar organizados para plotar
     grafArea = df.loc[:,[
     '1semanavar079', '2semanavar079', '3semanavar079','4semanavar079',
     '1semanavar0710', '2semanavar0710', '3semanavar0710','4semanavar0710',
     '1semanavar0711', '2semanavar0711', '3semanavar0711','4semanavar0711',
     '1semanavar0712', '2semanavar0712', '3semanavar0712','4semanavar0712','Grupos']]
     dataArea = ajeitandoColunas("var07",grafArea)
-    
+
     #
     dgraflinha = df.loc[:,[
     '1semanavar029', '2semanavar029', '3semanavar029','4semanavar029',
@@ -96,7 +96,7 @@ def dadosGraficos(df):
     '1semanavar0212', '2semanavar0212', '3semanavar0212','4semanavar0212',
     'Grupos']]
     dataLinha = ajeitandoColunas("var02",dgraflinha)
-    
+
     #
     dgrafMCA = df.loc[:,[
     '1semanavar059', '2semanavar059', '3semanavar059','4semanavar059',
@@ -104,7 +104,7 @@ def dadosGraficos(df):
     '1semanavar0511', '2semanavar0511', '3semanavar0511','4semanavar0511',
     '1semanavar0512', '2semanavar0512', '3semanavar0512','4semanavar0512','Grupos']]
     dataMCA = ajeitandoColunas("var05",dgrafMCA)
-   
+
     #
     dgrafMCF = df.loc[:,[
     '1semanavar039', '2semanavar039', '3semanavar039','4semanavar039',
@@ -112,7 +112,7 @@ def dadosGraficos(df):
     '1semanavar0311', '2semanavar0311', '3semanavar0311','4semanavar0311',
     '1semanavar0312', '2semanavar0312', '3semanavar0312','4semanavar0312','Grupos']]
     dataMCF = ajeitandoColunas("var03",dgrafMCF)
- 
+
     # grafico dispersao
     dfteste = df.loc[:,['notaforum','notawebquest', 'notachamadaregular','notachamadasegunda', 'notaavaliacaofinal', 'notachecklist','Grupos']]
     dfteste["auxnotaforum"] = dfteste['notaforum']
@@ -139,7 +139,7 @@ def dadosGraficos(df):
     dfl= dfteste.groupby(['Grupos','auxnotaavaliacaofinal1'])['auxnotaavaliacaofinal'].count().reset_index()
     dfl.rename(columns={'auxnotaavaliacaofinal1': 'Nota','auxnotaavaliacaofinal':'Quantidade de Alunos' }, inplace = True)
     dfl['Tipo de Avaliação'] = 'Avaliacao Final'
-    
+
     dff = pd.concat([dr,dfl,ds], ignore_index = True)
     dff.reset_index()
     display(dff)
@@ -411,7 +411,7 @@ def plotGraficos(dataA1,dataL1,dataMCA1,dataB1,dataD1,dataMCF1,dataalunos1,summa
         heatmap_data = pd.pivot_table(dataMCA1, values='Quantidade',index='Grupos',columns='Semanas')
         figMCA = px.imshow(heatmap_data,color_continuous_scale=color_mapas,
                         labels=dict(x="Semanas", y="Grupos", color="Quantidade"),
-                        x=[ 
+                        x=[
         '01-07 Setembro', '08-15 Setembro', '16-24 Setembro','25-30 Setembro',
         '01-07 Outubro', '08-15 Outubro', '16-24 Outubro','25-31 Outubro',
         '01-07 Novembro', '08-15 Novembro', '16-24 Novembro','25-30 Novembro',
@@ -494,7 +494,7 @@ def multi_output(input_dropdown,input_demo_dropdown_grupo):
         color_graficos=px.colors.qualitative.Plotly
         color_mapas='RdBu'
         return plotGraficos(dataArea, dataLinha, dataMCA,dataB, dataD, dataMCF, dataalunos1, summary,color_graficos,color_mapas)
-    
+
     elif input_dropdown == 'graph1' and input_demo_dropdown_grupo == 'Grupo 1':
         df = dfMC
         df = df[df["Grupos"]== 'Grupo 1']
@@ -508,7 +508,7 @@ def multi_output(input_dropdown,input_demo_dropdown_grupo):
 
         summary = {"Alunos no Grupo 1": len(dataalunos1),
                    "Respostas nos Fóruns": dataLinha['Quantidade'].sum(),
-           "Acesso ao Ambiente": dataArea['Quantidade'].sum()}   
+           "Acesso ao Ambiente": dataArea['Quantidade'].sum()}
         return plotGraficos(dataArea, dataLinha, dataMCA,dataB, dataD, dataMCF, dataalunos1,summary,color_graficos,color_mapas)
 
     elif input_dropdown == 'graph1' and input_demo_dropdown_grupo == 'Grupo 0':
@@ -521,11 +521,11 @@ def multi_output(input_dropdown,input_demo_dropdown_grupo):
         dataalunos1 = dataalunos1t
         summary = {"Alunos no Grupo 0": len(dataalunos1),
                    "Respostas nos Fóruns": dataLinha['Quantidade'].sum(),
-           "Acesso ao Ambiente": dataArea['Quantidade'].sum()}  
+           "Acesso ao Ambiente": dataArea['Quantidade'].sum()}
         color_graficos=px.colors.qualitative.Plotly
-        color_mapas='blues'  
+        color_mapas='blues'
         return plotGraficos(dataArea, dataLinha, dataMCA,dataB, dataD, dataMCF, dataalunos1,summary,color_graficos,color_mapas)
-    
+
     elif input_dropdown == 'graph2' and input_demo_dropdown_grupo == 'Grupo 0':
         df = dfZI
         df = df[df["Grupos"]== 'Grupo 0']
@@ -540,7 +540,7 @@ def multi_output(input_dropdown,input_demo_dropdown_grupo):
         color_graficos=px.colors.qualitative.Plotly
         color_mapas='blues'
         return plotGraficos(dataArea, dataLinha, dataMCA,dataB, dataD, dataMCF, dataalunos1,summary,color_graficos,color_mapas)
-    
+
 
     elif input_dropdown == 'graph2' and input_demo_dropdown_grupo == 'Grupo 1':
         df = dfZI
@@ -570,7 +570,7 @@ def multi_output(input_dropdown,input_demo_dropdown_grupo):
         color_graficos=px.colors.qualitative.Plotly
         color_mapas='RdBu'
         return plotGraficos(dataArea, dataLinha, dataMCA,dataB, dataD, dataMCF, dataalunos1,summary,color_graficos,color_mapas)
-    
+
     else:
         pass
 

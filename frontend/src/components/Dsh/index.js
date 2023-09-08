@@ -34,57 +34,53 @@ class Dsh extends Component {
   render() {
 
     return (
-        <ConfigContainer size='big' style={{ color: '#000' }}>
+        <ConfigContainer size="big" style={{ color: "#000" }}>
+            <Header>
+                <h1>Dashboard</h1>
+            </Header>
 
-          <Header>
-            <h1>Dashboard</h1>
-          </Header>
-
-        <Content>
-          {
-            //Primeira Coluna
-          }
-            <div className="dsh">
-              <div className="row">
-                <div className="mixed-chart">
-                  <Chart
-                  options={this.state.options}
-                  series={this.state.series}
-                  type='line'
-                  />
-                  <Chart
-                  options={this.state.options}
-                  series={this.state.series}
-                  type='bar'
-                  />
+            <Content>
+                {
+                    //Primeira Coluna
+                }
+                <div className="dsh">
+                    <div className="row">
+                        <div className="mixed-chart">
+                            <Chart
+                                options={this.state.options}
+                                series={this.state.series}
+                                type="line"
+                            />
+                            <Chart
+                                options={this.state.options}
+                                series={this.state.series}
+                                type="bar"
+                            />
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-        {
-        //Segunda Coluna
-        }
-            <div className="dsh">
-              <div className="row">
-                <div className="mixed-chart">
-                  <Chart
-                  options={this.state.options}
-                  series={this.state.series}
-                  type='scatter'
-                  />
-                  <Chart
-                  options={this.state.options}
-                  series={this.state.series}
-                  type='heatmap'
-                  />
+                {
+                    //Segunda Coluna
+                }
+                <div className="dsh">
+                    <div className="row">
+                        <div className="mixed-chart">
+                            <Chart
+                                options={this.state.options}
+                                series={this.state.series}
+                                type="scatter"
+                            />
+                            <Chart
+                                options={this.state.options}
+                                series={this.state.series}
+                                type="heatmap"
+                            />
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          
-        </Content>
-
-
-        </ConfigContainer >
-    )
+            </Content>
+        </ConfigContainer>
+    );
   }
 }
 export default connect()(Dsh);
